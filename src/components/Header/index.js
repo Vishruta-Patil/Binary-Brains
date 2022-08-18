@@ -25,8 +25,8 @@ export const Header = () => {
 
                         <Link to="/" className="primary-color" >
                             <h2 className="main-title">
-                                dupli
-                                <span className="secondary-color bold-main-title">C</span>hecker
+                                Dupli
+                                <span className="secondary-color bold-main-title">T</span>ool
                             </h2>
                         </Link> 
 
