@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./auth.css";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase-config";
+import { register } from "services/authService";
 
 export const SignIn = () => {
   let navigate = useNavigate();
@@ -11,20 +10,6 @@ export const SignIn = () => {
     email: "",
     password: "",
   });
-
-//   const register = async () => {
-//     try {
-//       const user = await createUserWithEmailAndPassword(
-//         auth,
-//         credentials.email,
-//         credentials.password
-//       );
-//       sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
-//       navigate('/')
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   };
 
   return (
     <div className="login-container signin-container flex-column">
@@ -57,7 +42,7 @@ export const SignIn = () => {
       </div>
 
       <button className="hero-btn" 
-    //   onClick={register}
+      onClick={() => register(credentials, navigate)}
       >Sign In</button>
       <p className="gen-msg">
         Already have an account?{" "}

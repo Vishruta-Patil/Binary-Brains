@@ -2,17 +2,26 @@ import { LogIn } from "pages/auth/login";
 import { SignIn } from "pages/auth/signin";
 import { Home } from "pages/home";
 import { PageNotFound } from "pages/PageNotFound";
+import { Palagrism } from "pages/palagrism";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import { PrivateRoute } from "./PrivateRoute";
 
 export const Router = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signin" element={<SignIn />} /> 
-            <Route path="*" element={<PageNotFound />} />
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="*" element={<PageNotFound />} />
 
-        </Routes>
-    )
-}
+      <Route
+        path="/palagrism"
+        element={
+          <PrivateRoute>
+            <Palagrism />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
+  );
+};

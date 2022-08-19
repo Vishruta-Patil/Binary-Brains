@@ -13,10 +13,10 @@
     font-size: 1.8rem;
 }
 
-.btn-container {
+/* .btn-container {
     display: flex;
     gap: 3rem
-}
+} */
 
 .not-found-btn {
     padding: 1rem 6rem;

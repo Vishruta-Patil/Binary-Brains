@@ -1,27 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./auth.css"
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase-config";
+import { loginUser } from "services/authService";
 
 export const LogIn = () => {
   const [credentials, setCredentials] = useState({});
   let navigate = useNavigate();
 
-//   const loginUser = async (email, password) => {
-//     try {
-//       const user = await signInWithEmailAndPassword(
-//         auth,
-//         email,
-//         password
-//       );
-//       sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
-//       navigate('/')
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   }
-  
   return (
     <div className="login-container flex-column">
       <h2 className="main-header">LOGIN</h2>
@@ -47,12 +32,12 @@ export const LogIn = () => {
       </div>
 
       <button className="hero-btn" 
-    //   onClick={() => loginUser(credentials.email, credentials.password)}
+      onClick={() => loginUser(credentials.email, credentials.password, navigate)}
       >
         Login
       </button>
       <button className="outline-btn" 
-    //   onClick={() => loginUser("test@123.com", "test123")}
+      onClick={() => loginUser("vishrutapatil@gmail.com", "vishrutapatil", navigate)}
       >
         Login With Guest Credentials
       </button>
