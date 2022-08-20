@@ -1,4 +1,4 @@
-import "./home.css"
+import "./home.css";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -9,15 +9,17 @@ export const Home = () => {
           Check How Much Authentic Is Your NCERT Book with DupliTool
         </h1>
         <p class="sub-title">
-          DupiTool is the devtool which checks the authencity of the book with the help of piracy and plagarism tools.
+          DupiTool is the devtool which checks the authencity of the book with
+          the help of piracy and plagarism tools.
         </p>
 
         <div class="btn-container">
+          <Link to="/piracy">
             <button class="get-started-btn">Check Piracy</button>
-            <Link to="/palagrism">
-              <button class="btn outline-primary">Check Plagarism</button> 
-            </Link>
-                    
+          </Link>
+          <Link to="/palagrism">
+            <button class="btn outline-primary">Check Plagarism</button>
+          </Link>
         </div>
       </div>
 

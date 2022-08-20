@@ -2,10 +2,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./auth.css"
 import { loginUser } from "services/authService";
+import { toast } from "react-toastify";
 
 export const LogIn = () => {
   const [credentials, setCredentials] = useState({});
   let navigate = useNavigate();
+
+  const loginWithoutCredentials = () => {
+    if(credentials.email && credentials.password) {
+    loginUser(credentials.email, credentials.password, navigate)
+    } else {
+      toast.error("Please fill all the credentials")
+    }
+  }
 
   return (
     <div className="login-container flex-column">
@@ -27,12 +36,12 @@ export const LogIn = () => {
         }}
       />
       <div className="terms-container flex">
-        <input id="terms-input" type="checkbox" />
+        <input id="terms-input" type="checkbox" required/>
         <label htmlFor="terms-input">I accept all the terms and conditions</label>
       </div>
 
       <button className="hero-btn" 
-      onClick={() => loginUser(credentials.email, credentials.password, navigate)}
+      onClick={loginWithoutCredentials}
       >
         Login
       </button>

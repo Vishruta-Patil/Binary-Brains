@@ -1,26 +1,17 @@
-import logo from './logo.svg';
+import logo from "./logo.svg";
 import './App.css';
-import { Header } from 'components/Header';
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./styles/index.css"
-import { Router } from 'components/Router';
+import { Header } from "components/Header";
+
+import "./styles/index.css";
+import { Router } from "components/Router";
+import { ToastWrapper } from "components/Toast/ToastWrapper";
+
 
 function App() {
   return (
     <div className="App">
-      <ToastContainer
-        position="bottom-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <Header/>
+      <ToastWrapper />
+      <Header />
       <Router />
     </div>
   );
