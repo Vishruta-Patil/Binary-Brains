@@ -14,7 +14,7 @@ export const Home = () => {
         </p>
 
         <div className="btn-container">
-          <Link to="/piracy">
+          <Link to="/book-details">
             <button className="btn get-started-btn">Check Piracy</button>
           </Link>
           <Link to="/palagrism">

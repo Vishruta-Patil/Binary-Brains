@@ -3,8 +3,8 @@ import { SignIn } from "pages/auth/signin";
 import { Home } from "pages/home";
 import { PageNotFound } from "pages/PageNotFound";
 import { Palagrism } from "pages/palagrism";
-import { Piracy } from "pages/piracy";
-import { Piracy1 } from "pages/piracy/piracy1";
+import { BookDetails } from "pages/piracy/BookDetails";
+import { LengthDetection } from "pages/piracy/LengthDetection";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 
@@ -27,19 +27,19 @@ export const Router = () => {
       />
 
 <Route
-        path="/piracy"
+        path="/book-details"
         element={
           <PrivateRoute>
-            <Piracy />
+            <BookDetails />
           </PrivateRoute>
         }
       />
 
 <Route
-        path="/piracy1"
+        path="/length-width-detection"
         element={
           <PrivateRoute>
-            <Piracy1 />
+            <LengthDetection />
           </PrivateRoute>
         }
       />

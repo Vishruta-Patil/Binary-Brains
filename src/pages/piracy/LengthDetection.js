@@ -1,8 +1,9 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import { uploadImageFromForm } from "services/uploadImageSevice";
+import { useBookDetails } from "context/bookDetailsContext";
 
-export const Piracy1 = () => {
+export const LengthDetection = () => {
   const [selectedFile, setSelectedFile] = useState("");
   const [imagePath, setImagePath] = useState("");
 
@@ -47,7 +48,7 @@ export const Piracy1 = () => {
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <input type="file" onChange={(e) => handleImagepreview(e)} />
 
-          {imagePath && <img style={{ width: 300 }} src={imagePath} />}
+          {imagePath && <img style={{ width: 300 }} src={imagePath} alt="Form-bannner"/>}
         </div>
         <div className="form-btn">
           <button className="hero-btn" onClick={uplaodImage}>Next </button>
