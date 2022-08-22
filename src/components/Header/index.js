@@ -20,7 +20,7 @@ export const Header = () => {
             </Link>
           </div>
 
-          <div className="header-main-content">
+          <div className="header-main-content desktop-header-icons">
             <div className="flex header-inner-container">
               <Link to="/" className="secondary-color">
                 <p className="header-item">Home</p>
@@ -31,7 +31,19 @@ export const Header = () => {
             </div>
           </div>
 
+          
+
           <div className="flex icon-container">
+          <div className="header-main-content mobile-view-header-icons">
+            <div className="flex header-inner-container">
+              <Link to="/" className="secondary-color">
+                <span className="material-icons icon header-icons"> home </span>
+              </Link>
+              <p href="#">
+                <span className="material-icons icon header-icons"> dashboard </span>
+              </p>
+            </div>
+          </div>
             {authToken ? (
               <div className="icon-unit">
                 <p
@@ -54,10 +66,10 @@ export const Header = () => {
               </div>
             )}
           </div>
-          <span className="material-icons icon hide-menu menu-logo">
+          {/* <span className="material-icons icon hide-menu menu-logo">
             {" "}
             menu{" "}
-          </span>
+          </span> */}
         </div>
       </div>
 
