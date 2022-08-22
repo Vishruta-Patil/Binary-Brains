@@ -1,7 +1,7 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import { uploadImageFromForm } from "services/uploadImageSevice";
-import { useBookDetails } from "context/bookDetailsContext";
+
 
 export const LengthDetection = () => {
   const [selectedFile, setSelectedFile] = useState("");
@@ -32,6 +32,7 @@ export const LengthDetection = () => {
     // console.log(e.target.files[0]);
     setSelectedFile(e.target.files[0]);
   };
+
 
   return (
     <div className="piracy-form-container">

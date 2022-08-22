@@ -5,6 +5,7 @@ const BookDetailsContext = createContext()
 const useBookDetails = () => useContext(BookDetailsContext)
 
 const initialValue = {
+    books: [],
     bookName:"option 1",
     edition:"option 1",
     class: "option 1",

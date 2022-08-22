@@ -1,7 +1,12 @@
-import { GET_BOOK_CLASS, GET_BOOK_EDITION, GET_BOOK_NAME, GET_BOOK_LANGUAGE } from "./bookDetailsConstant";
+import { GET_ALL_BOOKS, GET_BOOK_CLASS, GET_BOOK_EDITION, GET_BOOK_NAME, GET_BOOK_LANGUAGE } from "./bookDetailsConstant";
 
 export const bookDetailsReducer = (state, action) => {
   switch (action.type) {
+    case GET_ALL_BOOKS:
+      return {
+        ...state,
+        books: action.payload,
+      };
     case GET_BOOK_NAME:
       return {
         ...state,

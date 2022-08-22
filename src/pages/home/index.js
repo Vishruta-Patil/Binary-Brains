@@ -1,7 +1,20 @@
 import "./home.css";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getAllBooks } from "services/booksService";
+import { useBookDetails } from "context/bookDetailsContext";
+import { GET_ALL_BOOKS } from "reducer/bookDetailsConstant";
 
 export const Home = () => {
+  const { bookDetailDispatch } = useBookDetails();
+
+  useEffect(() => {
+    (async () => {
+      const res = await getAllBooks();
+      bookDetailDispatch({ type: GET_ALL_BOOKS, payload: res });
+    })();
+  }, []);
+
   return (
     <div className="hero-container">
       <div className="content">
