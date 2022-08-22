@@ -4,6 +4,7 @@ import { Home } from "pages/home";
 import { PageNotFound } from "pages/PageNotFound";
 import { Palagrism } from "pages/palagrism";
 import { Piracy } from "pages/piracy";
+import { Piracy1 } from "pages/piracy/piracy1";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 
@@ -30,6 +31,15 @@ export const Router = () => {
         element={
           <PrivateRoute>
             <Piracy />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        path="/piracy1"
+        element={
+          <PrivateRoute>
+            <Piracy1 />
           </PrivateRoute>
         }
       />
