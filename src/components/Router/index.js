@@ -5,6 +5,7 @@ import { PageNotFound } from "pages/PageNotFound";
 import { Palagrism } from "pages/palagrism";
 import { BookDetails } from "pages/piracy/BookDetails";
 import { LengthDetection } from "pages/piracy/LengthDetection";
+import { Review } from "pages/review";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 
@@ -16,7 +17,6 @@ export const Router = () => {
       <Route path="/signin" element={<SignIn />} />
       <Route path="*" element={<PageNotFound />} />
 
-
       <Route
         path="/palagrism"
         element={
@@ -26,7 +26,7 @@ export const Router = () => {
         }
       />
 
-<Route
+      <Route
         path="/book-details"
         element={
           <PrivateRoute>
@@ -35,11 +35,20 @@ export const Router = () => {
         }
       />
 
-<Route
+      <Route
         path="/length-width-detection"
         element={
           <PrivateRoute>
             <LengthDetection />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/review"
+        element={
+          <PrivateRoute>
+            <Review />
           </PrivateRoute>
         }
       />
