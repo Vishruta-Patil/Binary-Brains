@@ -1,7 +1,8 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import { uploadImageFromForm } from "services/uploadImageSevice";
-
+import { toast } from "react-toastify";
+import { getLengthWidth } from "services/lengthWidthService";
 
 export const LengthDetection = () => {
   // let arr = []
@@ -12,15 +13,15 @@ export const LengthDetection = () => {
   // co-ordinate points
   const [leftOffset, setLeftOffset] = useState("");
   const [topOffset, setTopOffset] = useState("");
-  const [xCoordinatePoint, setXcoordinatePoint] = useState("")
-  const [yCoordinatePoint, setYcoordinatePoint] = useState("")
+  const [xCoordinatePoint, setXcoordinatePoint] = useState("");
+  const [yCoordinatePoint, setYcoordinatePoint] = useState("");
 
-  const [firstpoint, setFirstpoint] = useState()
-  const [secondpoint, setSecondpoint] = useState()
-  const [thirdpoint, setThirdpoint] = useState()
-  const [fourthpoint, setFourthpoint] = useState()
+  const [firstpoint, setFirstpoint] = useState();
+  const [secondpoint, setSecondpoint] = useState();
+  const [thirdpoint, setThirdpoint] = useState();
+  const [fourthpoint, setFourthpoint] = useState();
 
-  const [whichpoint,setWhichpoint] = useState(0)
+  const [whichpoint, setWhichpoint] = useState(0);
 
   useEffect(() => {
     if (!selectedFile) {
@@ -32,19 +33,25 @@ export const LengthDetection = () => {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedFile]);
 
-  
-  const uplaodImage = async() => {
+  const uplaodImage = async () => {
     const formData = new FormData();
     formData.append("file", selectedFile);
     formData.append("upload_preset", "qqmoyvsb");
 
     const { uploadedImgUrl, public_id } = await uploadImageFromForm(formData);
+    
 
-    console.log({ uploadedImgUrl, public_id })
+    console.log({ uploadedImgUrl, public_id });
+
+    const imgUrl = uploadedImgUrl
+    
+
 
     // console.log(xCoordinatePoint, yCoordinatePoint)
-    console.log(firstpoint, secondpoint, thirdpoint, fourthpoint)
-    
+    console.log(firstpoint, secondpoint, thirdpoint, fourthpoint);
+    const coOrdinates = [firstpoint, secondpoint, thirdpoint, fourthpoint]
+    console.log(coOrdinates)
+     getLengthWidth(imgUrl, coOrdinates)
   };
 
   const handleImagepreview = (e) => {
@@ -53,41 +60,26 @@ export const LengthDetection = () => {
   };
 
   const getCordinatePoints = (e) => {
-    let localArr = []
+    let localArr = [];
     setLeftOffset(e.target.offsetLeft);
     setTopOffset(e.target.offsetTop);
 
-    // console.log(e.clientX - leftOffset);
-    // console.log(e.clientY - topOffset);
+    localArr = [e.clientX - leftOffset, e.clientY - topOffset];
 
-    // setXcoordinatePoint(e.clientX - leftOffset)
-    // setYcoordinatePoint(e.clientY - topOffset)
-
-    localArr = [e.clientX - leftOffset, e.clientY - topOffset]
-    
-    if (whichpoint == 0){
-      setFirstpoint(localArr)
-    }
-    else if(whichpoint ==1 ){
-      setSecondpoint(localArr)
-    }
-    else if(whichpoint==2){
-      setThirdpoint(localArr)
-    }
-    else if(whichpoint==3){
-      setFourthpoint(localArr)
+    if (whichpoint === 0) {
+      setFirstpoint(localArr);
+    } else if (whichpoint === 1) {
+      setSecondpoint(localArr);
+    } else if (whichpoint === 2) {
+      setThirdpoint(localArr);
+    } else if (whichpoint === 3) {
+      setFourthpoint(localArr);
     }
 
-    setWhichpoint(whichpoint+1)
-
-    // arr.push(localArr)
-    //setArr([...arr, localArr])
-    localArr = []
-
-    // console.log(arr)
-  }
-
-  
+    setWhichpoint(whichpoint + 1);
+    toast.success(`Point ${whichpoint+1} is alloted`)
+    localArr = [];
+  };
 
   return (
     <div className="piracy-form-container">
@@ -104,10 +96,19 @@ export const LengthDetection = () => {
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <input type="file" onChange={(e) => handleImagepreview(e)} />
 
-          {imagePath && <img style={{ width: 300 }} src={imagePath} alt="Form-bannner" onClick={getCordinatePoints}/>}
+          {imagePath && (
+            <img
+              style={{ width: 300 }}
+              src={imagePath}
+              alt="Form-bannner"
+              onClick={getCordinatePoints}
+            />
+          )}
         </div>
         <div className="form-btn">
-          <button className="hero-btn" onClick={uplaodImage}>Next </button>
+          <button className="hero-btn" onClick={uplaodImage}>
+            Next{" "}
+          </button>
         </div>
       </div>
     </div>
