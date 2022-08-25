@@ -47,6 +47,15 @@ select {
     margin-top: 2rem;
 }
 
+.file-upload {
+  margin: 2rem 0;
+}
+
+.label-img {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
 @media only screen and (max-width: 1000px) {
   .banner-container {
     display: none;

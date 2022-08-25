@@ -12,6 +12,7 @@ export const Home = () => {
     (async () => {
       const res = await getAllBooks();
       bookDetailDispatch({ type: GET_ALL_BOOKS, payload: res });
+      console.log(res)
     })();
   }, []);
 

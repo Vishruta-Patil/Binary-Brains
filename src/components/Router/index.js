@@ -4,6 +4,7 @@ import { Home } from "pages/home";
 import { PageNotFound } from "pages/PageNotFound";
 import { Palagrism } from "pages/palagrism";
 import { BookDetails } from "pages/piracy/BookDetails";
+import { CoverAndBackPage } from "pages/piracy/coverNBackPage";
 import { LengthDetection } from "pages/piracy/LengthDetection";
 import { Review } from "pages/review";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -40,6 +41,15 @@ export const Router = () => {
         element={
           <PrivateRoute>
             <LengthDetection />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/cover-backpage-detection"
+        element={
+          <PrivateRoute>
+            <CoverAndBackPage />
           </PrivateRoute>
         }
       />

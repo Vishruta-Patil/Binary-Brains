@@ -10,7 +10,9 @@ const initialValue = {
     edition:"option 1",
     class: "option 1",
     language: "option 1",
-    bookImageURL: ""
+    bookImageURL: "",
+    bookLength: "",
+    bookHeight: ""
 }
 
 const BookDetailsProvider = ({children}) => {

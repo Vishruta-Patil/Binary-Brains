@@ -1,4 +1,4 @@
-import { GET_ALL_BOOKS, GET_BOOK_CLASS, GET_BOOK_EDITION, GET_BOOK_NAME, GET_BOOK_LANGUAGE } from "./bookDetailsConstant";
+import { GET_ALL_BOOKS, GET_BOOK_CLASS, GET_BOOK_EDITION, GET_BOOK_NAME, GET_BOOK_LANGUAGE, GET_BOOK_HEIGHT, GET_BOOK_DIMENSION } from "./bookDetailsConstant";
 
 export const bookDetailsReducer = (state, action) => {
   switch (action.type) {
@@ -30,6 +30,13 @@ export const bookDetailsReducer = (state, action) => {
         ...state,
         language: action.payload,
       };
+
+      case GET_BOOK_DIMENSION:
+        return {
+          ...state,
+          bookLength: action.payload.length,
+          bookHeight: action.payload.height
+        }
 
     
   }
