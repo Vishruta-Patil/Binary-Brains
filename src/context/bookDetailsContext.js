@@ -6,13 +6,19 @@ const useBookDetails = () => useContext(BookDetailsContext)
 
 const initialValue = {
     books: [],
-    bookName:"option 1",
+    bookName:"",
     edition:"option 1",
     class: "option 1",
     language: "option 1",
     bookImageURL: "",
     bookLength: "",
-    bookHeight: ""
+    bookHeight: "",
+    coverPage: "",
+    totalScore: 0,
+    loader: false,
+    lengthAndWidth: 0,
+    bookCover: 0,
+    barCode: 0
 }
 
 const BookDetailsProvider = ({children}) => {

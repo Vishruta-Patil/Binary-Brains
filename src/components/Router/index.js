@@ -1,11 +1,16 @@
 import { LogIn } from "pages/auth/login";
 import { SignIn } from "pages/auth/signin";
+import { BlackListedVendor } from "pages/blacklistedVendor";
+import { AuthorisedVendor } from "pages/blacklistedVendor/authorizedVedor";
 import { Home } from "pages/home";
 import { PageNotFound } from "pages/PageNotFound";
 import { Palagrism } from "pages/palagrism";
 import { BookDetails } from "pages/piracy/BookDetails";
 import { CoverAndBackPage } from "pages/piracy/coverNBackPage";
 import { LengthDetection } from "pages/piracy/LengthDetection";
+import { Watermark } from "pages/piracy/watermark";
+import { Result } from "pages/result";
+import { Result1 } from "pages/result/index1";
 import { Review } from "pages/review";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
@@ -17,7 +22,6 @@ export const Router = () => {
       <Route path="/login" element={<LogIn />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="*" element={<PageNotFound />} />
-
       <Route
         path="/palagrism"
         element={
@@ -26,7 +30,6 @@ export const Router = () => {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/book-details"
         element={
@@ -35,7 +38,6 @@ export const Router = () => {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/length-width-detection"
         element={
@@ -44,7 +46,6 @@ export const Router = () => {
           </PrivateRoute>
         }
       />
-
       <Route
         path="/cover-backpage-detection"
         element={
@@ -53,7 +54,14 @@ export const Router = () => {
           </PrivateRoute>
         }
       />
-
+      <Route
+        path="/result"
+        element={
+          <PrivateRoute>
+            <Result1 />
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/review"
         element={
@@ -62,6 +70,33 @@ export const Router = () => {
           </PrivateRoute>
         }
       />
+      <Route
+        path="/blacklisted-vendor"
+        element={
+          <PrivateRoute>
+            <BlackListedVendor />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        path="/watermark"
+        element={
+          <PrivateRoute>
+            <Watermark />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        path="/authorized-vendor"
+        element={
+          <PrivateRoute>
+            <AuthorisedVendor />
+          </PrivateRoute>
+        }
+      />
+      
     </Routes>
   );
 };

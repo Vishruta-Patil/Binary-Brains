@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useBookDetails } from "context/bookDetailsContext";
 import {
   GET_BOOK_CLASS,
+  GET_BOOK_COVER_PAGE,
   GET_BOOK_EDITION,
   GET_BOOK_LANGUAGE,
   GET_BOOK_NAME,
@@ -16,8 +17,10 @@ export const BookDetails = () => {
   const {books} = bookDetailState
   const [bookData, setBookData] = useState([])
 
+  console.log(bookDetailState.books)
+
   useEffect(() => {
-    const updatedBookArray = books.filter(book => book.name === "Book 2")
+    const updatedBookArray = books.filter(book => book.bookname === "0854 - SCIENCE")
     console.log(updatedBookArray)
     setBookData(updatedBookArray[0])
   }, [])
@@ -28,10 +31,16 @@ export const BookDetails = () => {
       payload: e.target.value,
     })
     
-    const updatedBookArray = books.filter(book => book.name === e.target.value)
+    const updatedBookArray = books.filter(book => book.bookname === e.target.value)
     console.log(updatedBookArray)
     setBookData(updatedBookArray[0])
   }
+
+  const nextHandler = () => {
+    
+  }
+
+  console.log("abc" + bookDetailState.books)
 
   return (
     <div className="piracy-form-container">
@@ -51,12 +60,12 @@ export const BookDetails = () => {
           <label className="form-label">Name of book </label>
           <select
             className="font-sm"
-            onChange={(e) =>
-              bookDataUpdate(e)
+            onChange={
+              bookDataUpdate
             }
           >
             {books.map((book) => (
-              <option value={book.name}>{book.name}</option>
+              <option value={book.bookname}>{book.bookname}</option>
             ))}
             
           </select>
@@ -77,9 +86,9 @@ export const BookDetails = () => {
               })
             }
           >
-            {bookData?.edition?.map((edition) => (
-              <option value={edition}>{edition}</option>
-            ))}
+            {/* {bookData?.edition?.map((edition) => ( */}
+              <option value={bookData?.edition}>{bookData?.edition}</option>
+            {/* ))} */}
           </select>
         </div>{" "}
         <br />
@@ -98,9 +107,9 @@ export const BookDetails = () => {
               })
             }
           >
-            {bookData?.class?.map((bookclass) => (
-              <option value={bookclass}>{bookclass}</option>
-            ))}
+            {/* {bookData?.classn?.map((bookclass) => ( */}
+              <option value={bookData?.classn}>{bookData?.classn}</option>
+            {/* ))} */}
           </select>
         </div>{" "}
         <br />
@@ -119,14 +128,14 @@ export const BookDetails = () => {
               })
             }
           >
-            {bookData?.langauage?.map((language) => (
-              <option value={language}>{language}</option>
-            ))}
+            {/* {bookData?.langauage?.map((language) => ( */}
+              <option value="English">"English"</option>
+            {/* ))} */}
           </select>
         </div>
         <div className="form-btn">
-          <Link to="/length-width-detection">
-            <button className="hero-btn">Next </button>
+          <Link to="/watermark">
+            <button className="hero-btn" onClick={() => bookDetailDispatch({type: GET_BOOK_COVER_PAGE, payload: bookData?.coverpage})}>Next </button>
           </Link>
         </div>
       </div>

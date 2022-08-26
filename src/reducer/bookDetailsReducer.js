@@ -1,4 +1,15 @@
-import { GET_ALL_BOOKS, GET_BOOK_CLASS, GET_BOOK_EDITION, GET_BOOK_NAME, GET_BOOK_LANGUAGE, GET_BOOK_HEIGHT, GET_BOOK_DIMENSION } from "./bookDetailsConstant";
+import {
+  GET_ALL_BOOKS,
+  GET_BOOK_CLASS,
+  GET_BOOK_EDITION,
+  GET_BOOK_NAME,
+  GET_BOOK_LANGUAGE,
+  GET_BOOK_COVER_PAGE,
+  GET_BOOK_DIMENSION,
+  GET_TOTAL_SCORE,
+  LOADER_STATUS,
+  GET_LENGTH_WIDTH
+} from "./bookDetailsConstant";
 
 export const bookDetailsReducer = (state, action) => {
   switch (action.type) {
@@ -13,31 +24,56 @@ export const bookDetailsReducer = (state, action) => {
         bookName: action.payload,
       };
 
-      case GET_BOOK_EDITION:
+    case GET_BOOK_EDITION:
       return {
         ...state,
         edition: action.payload,
       };
 
-      case GET_BOOK_CLASS:
+    case GET_BOOK_CLASS:
       return {
         ...state,
         class: action.payload,
       };
 
-      case GET_BOOK_LANGUAGE:
+    case GET_BOOK_LANGUAGE:
       return {
         ...state,
         language: action.payload,
       };
 
-      case GET_BOOK_DIMENSION:
+    case GET_BOOK_DIMENSION:
+      return {
+        ...state,
+        bookLength: action.payload.length,
+        bookHeight: action.payload.height,
+      };
+
+    case GET_BOOK_COVER_PAGE:
+      return {
+        ...state,
+        coverPage: action.payload,
+      };
+
+      case GET_TOTAL_SCORE:
         return {
           ...state,
-          bookLength: action.payload.length,
-          bookHeight: action.payload.height
+          totalScore: Number(state.totalScore + action.payload)
         }
 
-    
+        case LOADER_STATUS: 
+          return {
+            ...state,
+            loader: !state.loader
+          }
+
+
+        case GET_LENGTH_WIDTH:
+          return {
+            ...state,
+            lengthAndWidth: Number(state.totalScore + action.payload)
+          }
   }
 };
+
+// https://res.cloudinary.com/debanftke/image/upload/v1661477388/brcd_yw11ut.jpg

@@ -14,7 +14,7 @@ import {
 
 export const getAllBooks = async() => {
     try {
-        const booksCollectionRef = collection(db, "books")
+        const booksCollectionRef = collection(db, "AllBooks")
         const q = query(booksCollectionRef)
 
         const res = await getDocs(q) 

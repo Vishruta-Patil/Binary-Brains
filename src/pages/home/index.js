@@ -17,6 +17,15 @@ export const Home = () => {
   }, []);
 
   return (
+    <div>
+      {/* <div style={{textAlign: "right", fontSize: "1rem", marginRight: "1rem"}}>
+      <a href="https://ncert.nic.in/pdf/publication/informationtocustomers/blacklisted_agents.pdf" target="_blank">
+            <button className="btn outline-primary" style={{fontSize: "1.5rem"}}>Blacklisted Vendors</button>
+          </a>
+          <a href="https://ncert.nic.in/pdf/publication/informationtocustomers/NameofwholesaleAgentsnew.pdf" target="_blank">
+            <button className="btn outline-primary" style={{marginLeft:"3rem", fontSize: "1.5rem"}}>Authorised Vendors</button>
+          </a>
+      </div> */}
     <div className="hero-container">
       <div className="content">
         <h1 className="title">
@@ -27,14 +36,20 @@ export const Home = () => {
           the help of piracy and plagarism tools.
         </p>
 
-        <div className="btn-container">
+        <div className="">
           <Link to="/book-details">
             <button className="btn get-started-btn">Check Piracy</button>
           </Link>
-          <Link to="/palagrism">
-            <button className="btn outline-primary">Check Plagarism</button>
-          </Link>
+          
         </div>
+        {/* <div style={{textAlign: "center", fontSize: "1rem", marginRight: "1rem"}}>
+      <a href="https://ncert.nic.in/pdf/publication/informationtocustomers/blacklisted_agents.pdf" target="_blank">
+            <button className="btn outline-primary" style={{fontSize: "1.5rem"}}>Blacklisted Vendors</button>
+          </a>
+          <a href="https://ncert.nic.in/pdf/publication/informationtocustomers/NameofwholesaleAgentsnew.pdf">
+            <button className="btn outline-primary" style={{marginLeft:"3rem", fontSize: "1.5rem"}}>Authorised Vendors</button>
+          </a>
+      </div> */}
       </div>
 
       <div className="hero-img">
@@ -44,6 +59,8 @@ export const Home = () => {
           alt=""
         />
       </div>
+</div>
+      
     </div>
   );
 };
