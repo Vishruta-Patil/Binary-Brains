@@ -7,6 +7,7 @@ import {
   GET_BOOK_EDITION,
   GET_BOOK_LANGUAGE,
   GET_BOOK_NAME,
+  GET_WATERMARK,
 } from "reducer/bookDetailsConstant";
 
 import { getAllBooks } from "services/booksService";
@@ -60,7 +61,8 @@ export const Watermark = () => {
             double_arrow{" "}
           </span>
           <label className="form-label font-sm watermark-label">Is Watermark Present</label>
-          <select className="font-sm" onChange={bookDataUpdate}>
+          <select className="font-sm" onClick={(e) => bookDetailDispatch({type:GET_WATERMARK, payload: e.target.value})}>
+          <option value="">-</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>

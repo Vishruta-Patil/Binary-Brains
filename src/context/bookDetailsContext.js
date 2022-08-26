@@ -18,7 +18,8 @@ const initialValue = {
     loader: false,
     lengthAndWidth: 0,
     bookCover: 0,
-    barCode: 0
+    barCode: 0,
+    isWatermark: ""
 }
 
 const BookDetailsProvider = ({children}) => {

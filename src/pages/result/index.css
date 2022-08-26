@@ -22,3 +22,10 @@
     padding: 9px;
     color: white
 }
+
+@media only screen and (max-width: 500px) {
+    .piracy-percentage {
+        margin: 5rem;
+        font-size: 3rem;
+    }
+}

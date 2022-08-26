@@ -25,9 +25,9 @@ export const Header = () => {
               <Link to="/" className="secondary-color">
                 <p className="header-item">Home</p>
               </Link>
-              <p href="#">
-                <p className="header-item primary-color">Dashboard</p>
-              </p>
+              <a href="https://youtu.be/YH3QYV97rj4" className="secondary-color" target="_blank">
+                <p className="header-item primary-color">Tutorial</p>
+              </a>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ export const Header = () => {
               <Link to="/" className="secondary-color">
                 <span className="material-icons icon header-icons"> home </span>
               </Link>
-              <p href="#">
+              <p href="https://youtu.be/YH3QYV97rj4">
                 <span className="material-icons icon header-icons"> dashboard </span>
               </p>
             </div>

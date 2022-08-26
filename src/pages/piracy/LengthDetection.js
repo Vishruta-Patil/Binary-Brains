@@ -8,7 +8,7 @@ import {
   getLengthWidth,
 } from "services/lengthWidthService";
 import { useBookDetails } from "context/bookDetailsContext";
-import { GET_BOOK_DIMENSION, GET_LENGTH_WIDTH } from "reducer/bookDetailsConstant";
+import { GET_BARCODE_VALUE, GET_BOOK_DIMENSION, GET_COVER_PAGE, GET_LENGTH_WIDTH } from "reducer/bookDetailsConstant";
 import { Link } from "react-router-dom";
 import { GET_TOTAL_SCORE } from "reducer/bookDetailsConstant";
 
@@ -89,21 +89,28 @@ export const LengthDetection = () => {
 
     if (getWidth < 1.5) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 5 });
+      bookDetailDispatch({ type: GET_LENGTH_WIDTH, payload: 5 });
     } else if (getWidth < 3) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 4 });
+      bookDetailDispatch({ type: GET_LENGTH_WIDTH, payload: 4 });
     } else {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 3 });
+      bookDetailDispatch({ type: GET_LENGTH_WIDTH, payload: 3 });
     }
 
      
     if (brute > 0.6) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 10 });
+      bookDetailDispatch({ type: GET_COVER_PAGE, payload: 10 })
     } else if (brute > 0.4) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 8 });
+      bookDetailDispatch({ type: GET_COVER_PAGE, payload: 8 })
     } else if (brute > 0.3) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 6 });
+      bookDetailDispatch({ type: GET_COVER_PAGE, payload: 6 })
     } else {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 0 });
+      bookDetailDispatch({ type: GET_COVER_PAGE, payload: 0 })
     }
 
 
@@ -112,8 +119,10 @@ export const LengthDetection = () => {
     const barCode = barCodeDetection.data.data 
     if (barCode === 10) {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 10 });
+      bookDetailDispatch({ type: GET_BARCODE_VALUE, payload: 10 });
     } else {
       bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: 0 });
+      bookDetailDispatch({ type: GET_BARCODE_VALUE, payload: 10 });
     }
   };
 
@@ -182,7 +191,7 @@ export const LengthDetection = () => {
       score += 2;
     }
 
-    console.log(score);
+    console.log(bookDetailState.isWatermark);
     bookDetailDispatch({ type: GET_TOTAL_SCORE, payload: Number(score) });
   };
 

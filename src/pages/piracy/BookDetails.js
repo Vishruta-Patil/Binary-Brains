@@ -52,6 +52,7 @@ export const BookDetails = () => {
         />
       </div>
       <div className="form-content-container">
+      <h1 className="font-header">ENTER THE BOOK DETAILS</h1>
         <div className="form-unit-box">
           <span className="material-icons icon right-arrow-icon">
             {" "}

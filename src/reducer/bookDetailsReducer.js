@@ -8,7 +8,10 @@ import {
   GET_BOOK_DIMENSION,
   GET_TOTAL_SCORE,
   LOADER_STATUS,
-  GET_LENGTH_WIDTH
+  GET_LENGTH_WIDTH,
+  GET_COVER_PAGE,
+  GET_BARCODE_VALUE,
+  GET_WATERMARK
 } from "./bookDetailsConstant";
 
 export const bookDetailsReducer = (state, action) => {
@@ -71,7 +74,26 @@ export const bookDetailsReducer = (state, action) => {
         case GET_LENGTH_WIDTH:
           return {
             ...state,
-            lengthAndWidth: Number(state.totalScore + action.payload)
+            lengthAndWidth: Number(state.lengthAndWidth + action.payload)
+          }
+
+
+          case GET_COVER_PAGE:
+          return {
+            ...state,
+            bookCover: Number(state.bookCover + action.payload)
+          }
+
+          case GET_BARCODE_VALUE:
+          return {
+            ...state,
+            barCode: Number(state.barCode + action.payload)
+          }
+
+          case GET_WATERMARK:
+          return {
+            ...state,
+            isWatermark: action.payload
           }
   }
 };
